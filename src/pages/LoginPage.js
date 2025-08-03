@@ -1,4 +1,5 @@
-// src/pages/LoginPage.js
+// src/pages/LoginPage.js (Versión FINAL Corregida)
+
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
@@ -16,7 +17,7 @@ const LoginPage = () => {
         setError('');
 
         try {
-            // URL de fetch corregida
+            // CORRECCIÓN: URL limpia sin caracteres extra
             const response = await fetch('http://localhost/Seguri_gestion_integral_React/actions/login_action.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -32,7 +33,7 @@ const LoginPage = () => {
                 setError(data.message);
             }
         } catch (err) {
-            console.error('Error de conexión:', err);
+            console.error('Error al intentar iniciar sesión:', err);
             setError('Error de conexión. Por favor, intente de nuevo.');
         }
     };
